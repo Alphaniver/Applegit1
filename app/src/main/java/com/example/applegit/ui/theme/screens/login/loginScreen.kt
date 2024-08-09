@@ -1,6 +1,5 @@
-package com.example.applegit.ui.theme.screens.register
+package com.example.applegit.ui.theme.screens.login
 
-import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -37,28 +36,27 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.applegit.R
-import com.example.applegit.navigation.ROUTE_HOME
-
+import com.example.applegit.navigation.ROUTE_LOGIN
+import com.example.applegit.navigation.ROUTE_REGISTER
 
 @Composable
-fun Greeting(name: String, navController: NavController) {
+fun Login( navController: NavController) {
 
-    var firstName by remember {
+    var userName by remember {
         mutableStateOf(value = "")
     }
     var secondName by remember {
         mutableStateOf(value = "")
     }
-    var email by remember {
-        mutableStateOf(value = "")
-    }
+//    var email by remember {
+//        mutableStateOf(value = "")
+//    }
     var password by remember {
         mutableStateOf(value = "")
     }
-    val context = LocalContext.current
+//    val context = LocalContext.current
     Column(
         modifier= Modifier
             .clip(RoundedCornerShape(10.dp))
@@ -68,7 +66,7 @@ fun Greeting(name: String, navController: NavController) {
 
     ) {
         Text(
-            text = "Hello there $name lets get started!",
+            text = "please login first",
             fontSize = 20.sp,
             color = Color.Black,
             fontFamily = FontFamily.SansSerif,
@@ -96,37 +94,37 @@ fun Greeting(name: String, navController: NavController) {
         OutlinedTextField(modifier = Modifier
             .align(Alignment.CenterHorizontally)
             .wrapContentHeight(),
-            label = { Text(text = "Enter first name ") },
-            placeholder = { Text(text = "Please enter first name") },
-            value = firstName,
+            label = { Text(text = "Enter username ") },
+            placeholder = { Text(text = "Please enter username") },
+            value = userName,
             onValueChange = { newName ->
-                firstName = newName
+                userName = newName
             })
-
+//
+//        Spacer(modifier = Modifier.height(10.dp))
+//
+//        OutlinedTextField(modifier = Modifier
+//            .align(Alignment.CenterHorizontally)
+//            .wrapContentHeight(),
+//            label = { Text(text = "Enter last name ") },
+//            placeholder = { Text(text = "Please enter last name") },
+//            value = secondName,
+//            onValueChange = { newLastName ->
+//                secondName = newLastName
+//            })
         Spacer(modifier = Modifier.height(10.dp))
 
-        OutlinedTextField(modifier = Modifier
-            .align(Alignment.CenterHorizontally)
-            .wrapContentHeight(),
-            label = { Text(text = "Enter last name ") },
-            placeholder = { Text(text = "Please enter last name") },
-            value = secondName,
-            onValueChange = { newLastName ->
-                secondName = newLastName
-            })
-        Spacer(modifier = Modifier.height(10.dp))
-
-        OutlinedTextField(modifier = Modifier
-            .align(Alignment.CenterHorizontally)
-            .wrapContentHeight(),
-            label = { Text(text = "Enter your email ") },
-            placeholder = { Text(text = "Please enter your email") },
-            value = email,
-            onValueChange = { newEmail ->
-                email = newEmail
-
-            })
-        Spacer(modifier = Modifier.height(10.dp))
+//        OutlinedTextField(modifier = Modifier
+//            .align(Alignment.CenterHorizontally)
+//            .wrapContentHeight(),
+//            label = { Text(text = "Enter your email ") },
+//            placeholder = { Text(text = "Please enter your email") },
+//            value = email,
+//            onValueChange = { newEmail ->
+//                email = newEmail
+//
+//            })
+//        Spacer(modifier = Modifier.height(10.dp))
 
         OutlinedTextField(modifier = Modifier
             .align(Alignment.CenterHorizontally)
@@ -140,34 +138,34 @@ fun Greeting(name: String, navController: NavController) {
         Spacer(modifier = Modifier.height(10.dp))
         Button(
             onClick = {
-                navController.navigate(ROUTE_HOME)
+                navController.navigate(ROUTE_LOGIN)
             }
 //            { val intent= Intent(context,Dashboard::class.java)
 //                context.startActivity(intent) }
-            , colors = ButtonDefaults.buttonColors(Color.Gray),
+            , colors = ButtonDefaults.buttonColors(Color.Yellow),
             modifier = Modifier
                 .wrapContentWidth()
                 .align(Alignment.CenterHorizontally)
         )
         {
-            Text(modifier = Modifier.padding(10.dp), text = "REGISTER HERE")
+            Text(modifier = Modifier.padding(3.dp), color = Color.Black, text = "LOGIN HERE")
 
         }
         Spacer(modifier = Modifier.height(20.dp))
         Row {
             Button(
                 onClick = { /*TODO*/ },
-                colors = ButtonDefaults.buttonColors(Color.Gray)
+                colors = ButtonDefaults.buttonColors(Color.Yellow)
             )
             {
-                Text(text = "LOGIN")
+                Text(text = "REGISTER")
 
             }
             Spacer(modifier = Modifier.height(20.dp))
 
             Button(
                 onClick = { /*TODO*/ },
-                colors = ButtonDefaults.buttonColors(Color.Gray)
+                colors = ButtonDefaults.buttonColors(Color.Yellow)
             )
             {
                 Text(text = "FORGOT PASSWORD?")
@@ -179,6 +177,6 @@ fun Greeting(name: String, navController: NavController) {
 }
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun GreetingPreview(){
-    Greeting("Joy", rememberNavController())
+fun LoginPreview(){
+    Login(rememberNavController())
 }

@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
@@ -47,7 +48,10 @@ fun HomeScreen(navController: NavController) {
             contentScale = ContentScale.FillBounds
         )
     }
-    Column() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         TopAppBar(
             title = { Text(text = "Justice with Judy") },
             navigationIcon = {
@@ -93,16 +97,18 @@ fun HomeScreen(navController: NavController) {
                         contentDescription = "Image",
 
                         )
+
                     Box(modifier = Modifier
                         .matchParentSize()
                         .padding(10.dp),
                         contentAlignment = Alignment.Center){
+//                        CREATE BUTTON
                         Text(fontWeight = FontWeight.Bold,
                             fontSize = 20.sp
 
                             , fontStyle = FontStyle.Normal
                             , color = Color.Black
-                            , text = "CASE STUDY")
+                            , text = "About Company")
 
                     }
 
@@ -123,7 +129,7 @@ fun HomeScreen(navController: NavController) {
                 Box(modifier = Modifier.height(100.dp))
                 {
                     Image(
-                        painter = painterResource(id = R.drawable.wave),
+                        painter = painterResource(id = R.drawable.tree),
                         contentDescription = "Image",
 
                         )
@@ -136,7 +142,7 @@ fun HomeScreen(navController: NavController) {
 
                             , fontStyle = FontStyle.Normal
                             , color = Color.Black
-                            , text = "LIVE SESSIONS" +
+                            , text = "Update client" +
                                     "")
 
                     }
@@ -176,8 +182,7 @@ fun HomeScreen(navController: NavController) {
 
                             , fontStyle = FontStyle.Normal
                             , color = Color.Black
-                            , text = "LIVE SESSIONS" +
-                                    "")
+                            , text = "Add a client" + "")
 
                     }
 
@@ -199,7 +204,7 @@ fun HomeScreen(navController: NavController) {
                 Box(modifier = Modifier.height(100.dp))
                 {
                     Image(
-                        painter = painterResource(id = R.drawable.wave),
+                        painter = painterResource(id = R.drawable.tree),
                         contentDescription = "Image",
 
                         )
@@ -212,7 +217,7 @@ fun HomeScreen(navController: NavController) {
 
                             , fontStyle = FontStyle.Normal
                             , color = Color.Black
-                            , text = "LIVE SESSIONS" +
+                            , text = "View all clients" +
                                     "")
 
                     }
